@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:www.maxstuiver.nl)",
+      "Bash(git rev-parse:*)",
+      "Bash(cat:*)",
+      "Bash(done)",
+      "WebFetch(domain:maxstuiver.nl)",
+      "Bash(find:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill -9)",
+      "Bash(PORT=3000 npm run dev:*)",
+      "Bash(chmod:*)",
+      "Bash(open:*)",
+      "Bash(./bin/dev node20 npm install)",
+      "Bash(/Users/sylvanloves/development/bin/dev node20 npm run dev)",
+      "Bash(pkill:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

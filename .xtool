@@ -1,0 +1,15 @@
+{
+  "database": {
+    "engine": "mysql80"
+  },
+  "php": {
+    "version": "php82"
+  },
+  "project": {
+    "gitlab_id": "0",
+    "type": "default"
+  },
+  "server": {
+    "document_root": "sylvanloves"
+  }
+}

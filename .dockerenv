@@ -1,0 +1,4 @@
+# Environment variables for Docker
+RESEND_API_KEY=re_Je9Sgwvd_GDxGmFqCCG76WYX3SbLcCBfm
+CONTACT_EMAIL=info@sylvanloves.nl
+NEXT_PUBLIC_SITE_URL=http://localhost:3000

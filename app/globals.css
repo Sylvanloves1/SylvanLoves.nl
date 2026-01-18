@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for fixed header */
+  }
+
+  :root {
+    /* Light mode colors */
+    --background: 0 0% 100%; /* #ffffff */
+    --foreground: 222 47% 11%; /* #1f2937 */
+    --surface: 210 40% 98%; /* #f9fafb */
+    --surface-elevated: 214 32% 95%; /* #f3f4f6 */
+    --primary: 217 91% 60%; /* #2563eb */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 250 95% 63%; /* #7c3aed */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%; /* #6b7280 */
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 13% 91%; /* #e5e7eb */
+    --code-bg: 210 40% 96%; /* #f5f5f5 */
+  }
+
+  .dark {
+    /* Dark mode colors - Brighter variant */
+    --background: 0 0% 9%; /* #171717 - Lighter background */
+    --foreground: 0 0% 98%; /* #fafafa - Brighter text */
+    --surface: 0 0% 13%; /* #212121 - Lighter surface */
+    --surface-elevated: 0 0% 17%; /* #2b2b2b - Lighter elevated */
+    --primary: 217 91% 65%; /* #5b9bf8 - Brighter blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 250 95% 68%; /* #a78bfa - Brighter purple */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 20%; /* Lighter muted */
+    --muted-foreground: 0 0% 70%; /* #b3b3b3 - Brighter muted text */
+    --accent: 217 91% 65%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 22%; /* #383838 - Lighter borders */
+    --code-bg: 0 0% 15%; /* #262626 - Lighter code background */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Smooth transitions for theme changes */
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  /* Disable transitions on theme-specific elements to prevent flash */
+  .no-transition {
+    transition: none !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Background grid pattern */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Animated gradient background */
+.bg-gradient-animated {
+  background: linear-gradient(
+    -45deg,
+    hsl(var(--background)),
+    hsl(var(--primary) / 0.05),
+    hsl(var(--secondary) / 0.05),
+    hsl(var(--background))
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animated gradient for text */
+.animate-gradient {
+  animation: gradient-shift 3s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Dot pattern */
+.bg-dot-pattern {
+  background-image: radial-gradient(
+    circle,
+    hsl(var(--primary) / 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+/* Mesh gradient */
+.bg-mesh-gradient {
+  background:
+    radial-gradient(at 0% 0%, hsl(var(--primary) / 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsl(var(--secondary) / 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsl(var(--primary) / 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsl(var(--secondary) / 0.1) 0px, transparent 50%);
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-lg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-primary/20 text-foreground;
+}
+
+/* Focus visible styling for accessibility */
+*:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

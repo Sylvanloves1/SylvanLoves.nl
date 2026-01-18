@@ -1,0 +1,22 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <rect width="128" height="128" rx="24" fill="url(#gradient)"/>
+
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Terminal-style brackets -->
+  <path d="M 30 40 L 20 50 L 30 60" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 98 40 L 108 50 L 98 60" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- SL Text -->
+  <text x="64" y="78" font-family="monospace" font-size="48" font-weight="bold" fill="white" text-anchor="middle">SL</text>
+
+  <!-- Blinking cursor -->
+  <rect x="82" y="58" width="3" height="24" fill="white" opacity="0.9"/>
+</svg>

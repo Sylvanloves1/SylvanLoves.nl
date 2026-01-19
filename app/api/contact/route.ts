@@ -23,20 +23,16 @@ export async function POST(request: NextRequest) {
     // Initialize Resend with API key (check at runtime)
     const apiKey = process.env.RESEND_API_KEY;
 
-    console.log("=== EMAIL DEBUG ===");
-    console.log("API Key exists:", !!apiKey);
-    console.log("Contact email:", process.env.CONTACT_EMAIL || SITE_CONFIG.email);
-    console.log("==================");
-
     // Send email using Resend
     if (apiKey) {
       const resend = new Resend(apiKey);
 
       try {
         const result = await resend.emails.send({
-          from: `Portfolio <noreply@sylvanloves.nl>`,
+          from: "Portfolio <noreply@sylvanloves.nl>",
           to: [process.env.CONTACT_EMAIL || SITE_CONFIG.email],
           subject: `Portfolio Contact from ${name}`,
+          text: `New contact form submission\n\nName: ${name}\nEmail: ${email}\n\n${message}`,
           html: `
             <div style="font-family: monospace; max-width: 600px; margin: 0 auto;">
               <h2 style="color: #3b82f6;">New Contact Form Submission</h2>
@@ -54,13 +50,7 @@ export async function POST(request: NextRequest) {
           reply_to: email,
         });
 
-        console.log("✅ Email sent successfully!");
-        console.log("Email ID:", result.data?.id);
-        console.log("Sent to:", process.env.CONTACT_EMAIL || SITE_CONFIG.email);
       } catch (emailError: any) {
-        console.error("❌ Resend email error:", emailError);
-        console.error("Error details:", emailError.message);
-        console.error("Error response:", emailError.response?.data);
         throw emailError;
       }
     } else {

@@ -22,7 +22,11 @@
       "Bash(/Users/sylvanloves/development/bin/dev node20 npm run dev)",
       "Bash(pkill:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git remote add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)"
     ]
   }
 }

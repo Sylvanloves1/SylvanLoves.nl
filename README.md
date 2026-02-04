@@ -19,7 +19,7 @@ A modern, code-themed portfolio website built with Next.js 14, TypeScript, and T
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
 - **Forms**: React Hook Form + Zod validation
-- **Email**: Resend API
+- **Email**: Formspree
 - **Theme**: next-themes
 - **Icons**: lucide-react
 
@@ -43,9 +43,8 @@ A modern, code-themed portfolio website built with Next.js 14, TypeScript, and T
    ```
 
 4. Configure environment variables:
-   - `RESEND_API_KEY`: Your Resend API key for email functionality
+   - `FORMSPREE_FORM_ID`: Your Formspree form ID (get one at https://formspree.io)
    - `NEXT_PUBLIC_SITE_URL`: Your website URL
-   - `CONTACT_EMAIL`: Email address to receive contact form submissions
 
 ### Development
 
